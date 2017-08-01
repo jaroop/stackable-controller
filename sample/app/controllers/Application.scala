@@ -1,13 +1,13 @@
 package controllers
 
-import play.api.mvc._
-import models._
-import views._
 import controllers.stack._
-import jp.t2v.lab.play2.stackc.RequestWithAttributes
+import javax.inject.{ Inject, Singleton }
+import models._
+import play.api.mvc._
 
-object Application extends Controller with DBSessionElement with LoggingElement {
-  
+@Singleton
+class Application @Inject() () extends InjectedController with DBSessionElement with LoggingElement {
+
   def index = Action {
     Ok(views.html.index("Your new application is ready."))
   }
